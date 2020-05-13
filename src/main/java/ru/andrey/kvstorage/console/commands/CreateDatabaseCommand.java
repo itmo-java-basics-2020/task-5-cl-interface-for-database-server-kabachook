@@ -24,7 +24,7 @@ public class CreateDatabaseCommand implements DatabaseCommand {
         try {
             env.addDatabase(new HashMapDatabase(databaseName));
             return DatabaseCommandResult.success("Created the database");
-        } catch (Exception e){
+        } catch (Exception e) {
             return DatabaseCommandResult.error(e.getMessage());
         }
     }

@@ -5,8 +5,6 @@ import ru.andrey.kvstorage.console.DatabaseCommandResult;
 import ru.andrey.kvstorage.console.ExecutionEnvironment;
 import ru.andrey.kvstorage.exception.DatabaseException;
 
-import javax.xml.crypto.Data;
-
 public class CreateTableCommand implements DatabaseCommand {
     private final ExecutionEnvironment env;
     private final String databaseName;
@@ -22,14 +20,13 @@ public class CreateTableCommand implements DatabaseCommand {
     public DatabaseCommandResult execute() {
         var database = env.getDatabase(databaseName);
 
-        if (database.isEmpty()){
+        if (database.isEmpty()) {
             return DatabaseCommandResult.error("Database " + databaseName + " does not exist");
         }
 
-        try{
+        try {
             database.get().createTableIfNotExists(tableName);
-        }
-        catch (DatabaseException e){
+        } catch (DatabaseException e) {
             return DatabaseCommandResult.error(e.getMessage());
         }
         return DatabaseCommandResult.success("Created table" + tableName);

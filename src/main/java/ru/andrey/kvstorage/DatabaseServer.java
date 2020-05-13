@@ -17,7 +17,7 @@ public class DatabaseServer {
     }
 
     DatabaseCommandResult executeNextCommand(String commandText) {
-        try{
+        try {
             return DatabaseCommands.get(env, commandText).execute();
         } catch (IllegalArgumentException e) {
             return DatabaseCommandResult.error(e.getMessage());

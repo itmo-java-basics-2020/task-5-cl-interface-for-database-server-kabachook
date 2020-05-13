@@ -1,6 +1,5 @@
 package ru.andrey.kvstorage.console.commands;
 
-import ru.andrey.kvstorage.Utils;
 import ru.andrey.kvstorage.console.DatabaseCommand;
 import ru.andrey.kvstorage.console.DatabaseCommandResult;
 import ru.andrey.kvstorage.console.ExecutionEnvironment;
@@ -30,7 +29,7 @@ public class ReadKeyCommand implements DatabaseCommand {
         try {
             var value = database.get().read(tableName, key);
             return DatabaseCommandResult.success(value);
-        } catch (DatabaseException e){
+        } catch (DatabaseException e) {
             return DatabaseCommandResult.error(e.getMessage());
         }
     }

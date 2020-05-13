@@ -1,7 +1,8 @@
 package ru.andrey.kvstorage.logic;
 
-import ru.andrey.kvstorage.exception.DatabaseException;
 import ru.andrey.kvstorage.Utils;
+import ru.andrey.kvstorage.exception.DatabaseException;
+
 import java.util.HashMap;
 
 public class HashMapDatabase implements Database {
@@ -38,7 +39,7 @@ public class HashMapDatabase implements Database {
         Utils.checkEmptyOrNull(objectKey, "objectKey");
         Utils.checkEmptyOrNull(objectValue, "objectValue");
 
-        if (!tables.containsKey(tableName)){
+        if (!tables.containsKey(tableName)) {
             throw new DatabaseException("Table " + tableName + "does not exists");
         }
 
@@ -50,9 +51,9 @@ public class HashMapDatabase implements Database {
         Utils.checkEmptyOrNull(tableName, "tableName");
         Utils.checkEmptyOrNull(objectKey, "objectKey");
 
-        if (tables.containsKey(tableName)){
+        if (tables.containsKey(tableName)) {
             var table = tables.get(tableName);
-            if (table != null && table.containsKey(objectKey)){
+            if (table != null && table.containsKey(objectKey)) {
                 return table.get(objectKey);
             }
         }

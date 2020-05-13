@@ -31,7 +31,7 @@ public class UpdateKeyCommand implements DatabaseCommand {
         try {
             database.get().write(tableName, key, value);
             return DatabaseCommandResult.success(null);
-        } catch (DatabaseException e){
+        } catch (DatabaseException e) {
             return DatabaseCommandResult.error(e.getMessage());
         }
     }

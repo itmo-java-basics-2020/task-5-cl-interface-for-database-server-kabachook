@@ -1,7 +1,5 @@
 package ru.andrey.kvstorage.console;
 
-import ru.andrey.kvstorage.logic.Database;
-
 import java.util.Optional;
 
 public interface DatabaseCommandResult {
@@ -18,11 +16,11 @@ public interface DatabaseCommandResult {
         SUCCESS, FAILED
     }
 
-    static DatabaseCommandResult success(String result){
+    static DatabaseCommandResult success(String result) {
         return new DatabaseCommandResultImpl(result, null, DatabaseCommandStatus.SUCCESS);
     }
 
-    static DatabaseCommandResult error(String error){
+    static DatabaseCommandResult error(String error) {
         return new DatabaseCommandResultImpl(null, error, DatabaseCommandStatus.FAILED);
     }
 
