@@ -24,16 +24,16 @@ public interface DatabaseCommandResult {
         return new DatabaseCommandResultImpl(null, error, DatabaseCommandStatus.FAILED);
     }
 
-    final class DatabaseCommandResultImpl implements DatabaseCommandResult {
-        private String result;
-        private String error;
-        private DatabaseCommandStatus status;
+     final class DatabaseCommandResultImpl implements DatabaseCommandResult {
+         private String result;
+         private String error;
+         private DatabaseCommandStatus status;
 
-        public DatabaseCommandResultImpl(String result, String error, DatabaseCommandStatus status) {
-            this.result = result;
-            this.error = error;
-            this.status = status;
-        }
+         public DatabaseCommandResultImpl(String result, String error, DatabaseCommandStatus status) {
+             this.result = result;
+             this.error = error;
+             this.status = status;
+         }
 
         @Override
         public Optional<String> getResult() {
@@ -47,7 +47,7 @@ public interface DatabaseCommandResult {
 
         @Override
         public boolean isSuccess() {
-            return status.equals(DatabaseCommandStatus.SUCCESS);
+            return status == DatabaseCommandStatus.SUCCESS;
         }
 
         @Override

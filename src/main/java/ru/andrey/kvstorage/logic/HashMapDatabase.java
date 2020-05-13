@@ -4,10 +4,11 @@ import ru.andrey.kvstorage.Utils;
 import ru.andrey.kvstorage.exception.DatabaseException;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class HashMapDatabase implements Database {
     private final String name;
-    private final HashMap<String, HashMap<String, String>> tables;
+    private final Map<String, Map<String, String>> tables;
 
     public HashMapDatabase(String name) {
         this.name = name;
